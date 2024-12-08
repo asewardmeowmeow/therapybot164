@@ -7,14 +7,14 @@ options=['Empathetic','Helpful','Understanding']
 
 def saveData(text, options, output):
   import csv
-  with open('/content/drive/MyDrive/it164/assignment.csv', 'a') as f:
+  with open(#your file here!, 'a') as f:
     w=csv.writer(f)
     w.writerow([text, options, output])
 
 
 def starchat(text, theme):
   modelname = "HuggingFaceH4/starchat2-15b-v0.1"
-  client=InferenceClient(model=modelname, token=hftoken)
+  client=InferenceClient(model=modelname, token=# your token)
   thiscontent=f'give only one {options} response for this statement: {text}?'
   messages=[{'role': 'user', 'content':thiscontent},]
   output=client.chat_completion(messages, max_tokens=100)
@@ -24,7 +24,7 @@ def starchat(text, theme):
 
 def zephyr(text, theme):
   modelname = "HuggingFaceH4/zephyr-7b-beta"
-  client=InferenceClient(model=modelname, token=hftoken)
+  client=InferenceClient(model=modelname, token=#your token)
   thiscontent=f'give only one {options} response for this statement: {text}?'
   messages=[{'role': 'user', 'content':thiscontent},]
   output=client.chat_completion(messages, max_tokens=100)
